@@ -87,26 +87,46 @@ main{
     margin-bottom: 100px;
     overflow: hidden;
 }
-#banner {
+
+#banner-container{
     display: flex;
+    width: 100%;
+    animation: slide 5s linear 5;
+}
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.banner {
+    display: flex;
+    flex: 0 0 auto;
     flex-wrap: nowrap;
     margin-top: 100px;
     gap: 10px;
     width: 100%;
-
+}
+/*
+#img {
+    position: absolute;
+    display: flex;
     animation-name: banner;
     animation-duration: 5s;
     animation-timing-function: linear;
-    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
 }
 @keyframes banner {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(calc(-100%*3));
+        left: 800px;
     }
-}
+}*/
 main > section > h1 {
     display: flex;
     align-items: end;
