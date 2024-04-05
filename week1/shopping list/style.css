@@ -91,7 +91,7 @@ main{
 #banner-container{
     display: flex;
     width: 100%;
-    animation: slide 5s linear 5;
+    animation: slide 5s linear infinite;
 }
 @keyframes slide {
     0% {
