@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"/>
-    <!--Google Icons - 메뉴 바 설정-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!--Google Icons - modal 화살표 설정-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!--Google Font - 한글 글꼴 설정-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,17 +13,29 @@
     <title>webbie's shop list</title>
 </head>
 <body class="gaegu-regular">
+
+    <!--모달-->
+    <div class="modal">
+        <span class="material-symbols-outlined">
+            arrow_forward
+            </span>
+        <p class="modalList">관심 상품 목록</p>
+        <p class="modalList">관리자 페이지</p>
+        <a href="cart.html" alt="cart" class="modalList">장바구니</a>
+    </div>
+
     <!--큰 제목 헤더 -->
     <header class="big_title">
-        <h1 class="HomeIcon">♡</h1>
-        <h1>보운이의 찜리스트</h1>
-        <div>
+        <a href="index.html" alt="home" class="titles">♡</a>
+        <h1 class="titles">보운이의 찜리스트</h1>
+        <div id="modalOpen">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </header>
-    <!--좌측 고정 메뉴 바-->
+
+    <!--좌측 고정 Nav-->
     <nav>
         <h1>찜 목록</h1>
         <span>
@@ -33,6 +45,7 @@
             <button class="navBtn">악세서리</button>
         </span>
     </nav>
+
     <!--메인-->
     <main>
         <section class="banner-container">
@@ -45,6 +58,7 @@
         </section>
     </main>
     
+    <!--마무리말-->
     <footer>
         <h1>!여기서 재미있는 사실!</h1>
         <h1>...이것은 실제 저의 찜목록들을 가져온 것입니다...</h1>
