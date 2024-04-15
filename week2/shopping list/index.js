@@ -142,9 +142,6 @@ function showShopItems ( givenSort ) {
     //forEach vs map ?? => map은 새로운 배열 반환
 }
 
-
-
-
 //nav에서 클릭한 section 이미지들 불러오기!
 const navBtnClickHandler = (e) => {
     //있던거 모든거 삭제하기...

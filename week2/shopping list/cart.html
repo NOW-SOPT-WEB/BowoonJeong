@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cart.css"/>
-    <!--Google Icons - modal 화살표 설정-->
+    <!--Google Icons - modal x표 설정-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!--Google Font - 한글 글꼴 설정-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,31 +24,31 @@
     </header>
     <main>
         <section>
-            <table>
-                <tr class="tableList">
-                    <th scope="col" class="tableList">체크</th>
-                    <th scope="col" colspan="2" class="tableList">상품정보</th>
-                    <th scope="col" class="tableList">상품 금액</th>
-                    <th scope="col" class="tableList">카테고리</th>
-                    <th scope="col" class="tableList">비고</th>
-                </tr>
-                <tr>
-                    <th scope="col">체크</th>
-                    <th scope="col">사진</th>
-                    <th scope="col">밸런스보드</th>
-                    <th scope="col">40원</th>
-                    <th scope="col">스포츠</th>
-                    <th scope="col">삭제</th>
-                </tr>
-                <tr>
-                    <th scope="col">체크</th>
-                    <th scope="col">사진</th>
-                    <th scope="col">밸런스보드</th>
-                    <th scope="col">40원</th>
-                    <th scope="col">스포츠</th>
-                    <th scope="col">삭제</th>
-                </tr>
-            </table>
+                <table id="table">
+                    <tr>
+                        <th scope="col" class="tableList">
+                            <input type="checkbox"/></th>
+                        <th scope="col" colspan="2" class="tableList">상품정보</th>
+                        <th scope="col" class="tableList">상품 금액</th>
+                        <th scope="col" class="tableList">카테고리</th>
+                        <th scope="col" class="tableList">비고</th>
+                    </tr>
+                    
+                </table>
+                <div class="btnClass">
+                    <button id="toBuyBtn">구매하기</button>
+                    <a href="index.html" alt="home" id="toHomeBtn">홈으로</a>
+                </div>
+        </section>
+        <section>
+            <div class="cartListModal">
+                <span class="material-symbols-outlined">
+                    close
+                    </span>
+                <div id="cartItems"></div>
+                <p id="price"></p>
+                <button id="buyBtn">구매하기</button>
+            </div>
         </section>
 
     </main>
