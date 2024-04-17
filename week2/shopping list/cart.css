@@ -26,19 +26,16 @@
     font-size: 3rem;
     text-decoration-line: none;
 }
-.big_title > h1 + div > span {
-    display: block;
-    width: 3rem;
-    height: 0.3rem;
-    margin: 0.5rem;
-    border-radius: 1rem;
-    background: darkgreen;
+.menubar{
+    color:darkgreen;
+    font-size: 100px;
+    /*흠....구글 meterial 아이콘인데.. 왜 사이즈 조정이 안될까 ㅠ*/
+    cursor: pointer;
+    /*오잉 커서 포인터는 또 왜안돼...??*/
 }
 
-/*main*/
-
 /*Table*/
-#table{
+.table{
     position: relative;
     top: 10rem;
     left: 15%;
@@ -90,7 +87,7 @@ th,td {
     gap:1rem;
 }
 
-#toBuyBtn{
+.toBuyBtn{
     color: blueviolet;
     border: 1px solid blueviolet;
     border-radius: 10px;
@@ -101,7 +98,7 @@ th,td {
     cursor: pointer;
 }
 
-#toHomeBtn{
+.toHomeBtn{
     display: flex;
     align-self: center;
     padding: 5px;
@@ -135,7 +132,7 @@ th,td {
     border-radius: 30px;
     
 }
-#cartItems{
+.cartItems{
     position: absolute;
     top: 4rem;
     display: flex; 
@@ -158,13 +155,13 @@ th,td {
 .tobuyImg{
     width: 5rem;
 }
-#price{
+.price{
     position: absolute;
     bottom: 4rem;
     font-size: large;
 }
 
-#buyBtn{
+.buyBtn{
     position: absolute;
     bottom: 2rem;
     left: 50%;

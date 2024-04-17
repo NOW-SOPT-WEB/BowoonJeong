@@ -16,9 +16,18 @@ const ITEMS_KEY = "storedItems";
 
 //modal
 const modal = document.getElementsByClassName( "modal" );
-const modalOpenBtn = document.getElementById( "modalOpen" );
-modalOpenBtn.addEventListener( "click", 
-    () => { modal[0].style.visibility = "visible" }
+const modalOpenBtn = document.getElementsByClassName( "menubar" );
+
+let modalAni = [
+    {opacity: 0}, {opacity: 0.2}, {opacity: 1, transform: "translate(100px,0"}
+]
+
+modalOpenBtn[0].addEventListener( "click", 
+    () => { modal[0].style.visibility = "visible";
+    //메뉴바눌렀을때 조금씩 나오게.. 애니메이션없나ㅠ
+    modal[0].animate( modalAni);
+    console.log(modal[0])
+ }
 );
 
 const closeArrow = document.getElementsByClassName( "material-symbols-outlined" );
@@ -137,7 +146,6 @@ function showShopItems ( givenSort ) {
         } );
         //헤헤 currentTarget이랑 target의 차이를 유심히 봐뒀찌!! 
         //currentTaget은 이벤트리스너가 부착돈 요소!! 타겟은 그냥 클릭된거!!
-        
     })
     //forEach vs map ?? => map은 새로운 배열 반환
 }

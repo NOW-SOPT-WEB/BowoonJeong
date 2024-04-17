@@ -18,8 +18,8 @@
     background-color: darkgreen;
     z-index: 20;
     visibility: hidden;
-} /*위에서 height를 어떻게 해봐도 왜 스크롤 생기면 안나와ㅠ*/
-/*이거 크기 조절이 안된다...png로도 해봤는데 그것도 안됨..ㅠ*/
+}
+/*구글 심볼로 하면 크기조절안된다.. 아이콘으로하자!*/
 .material-symbols-outlined {
     color:white;
     cursor: pointer;
@@ -63,15 +63,13 @@
     font-size: 3rem;
     text-decoration-line: none;
 }
-.big_title > h1 + div > span {
-    display: block;
-    width: 3rem;
-    height: 0.3rem;
-    margin: 0.5rem;
-    border-radius: 1rem;
-    background: darkgreen;
+.menubar{
+    color:darkgreen;
+    font-size: 100px;
+    /*흠....구글 meterial 아이콘인데.. 왜 사이즈 조정이 안될까 ㅠ*/
 }
-/*메뉴 바*/
+
+/*nav*/
 nav{
     display: flex;
     align-items: center;
@@ -84,7 +82,7 @@ nav{
     border-radius: 2rem;
     background-color: lightgreen;
 }
-nav > span {
+nav > ul {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -96,7 +94,7 @@ nav > span {
     background-color: white;
 }
     /*focus 넣으려고 버튼으로 함 -> h2일때는 focus안됨 ㅠ*/
-nav > span > .navBtn {
+nav > ul > .navBtn {
     border: 0;
     background-color: transparent;
     font-family: "Gaegu", sans-serif;
@@ -104,15 +102,11 @@ nav > span > .navBtn {
     font-size: 1.5rem;
     font-style: normal;
 }
-nav > span > button:focus, nav > span > button:hover {
+nav > ul > button:focus, nav > ul > button:hover {
     width: 100%;
     border-radius: 1.5rem;
     background-color: lightgreen;
     color: white;
-}
-nav > span > button > a {
-    text-decoration:none;
-    color: black;
 }
 
 

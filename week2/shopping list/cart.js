@@ -14,6 +14,7 @@ const shopList = [
 ];
 const ITEMS_KEY = "storedItems";
 var cartList = [];
+var checkedList = [];
 
 //localStorage에서 가져오기
 let storedCartList = JSON.parse(localStorage.getItem( ITEMS_KEY ));
@@ -27,18 +28,19 @@ storedCartList.forEach((item) => {
 })
 
 //list로 테이블 완성하기
-const table = document.getElementById( "table" );
+const table = document.getElementsByClassName( "table" );
 
 /* Uncaught TypeError: Cannot read properties of null (reading 'insertRow')
 이런 에러는 넣는애가 아니라 객체가 문제가 있는거임!! 여기서도 table이 아이디 없었음ㅋㅋ*/
 cartList.forEach(( item ) => {
-    const new_row = table.insertRow();
+    const new_row = table[0].insertRow();
     new_row.setAttribute( "id", `${item.title}`);
 
     
     const checkCell = new_row.insertCell(0);
     const input = document.createElement( "input" );
     input.type = "checkbox";
+    input.className = "itemCheckbox";
     checkCell.appendChild(input);
 
     const imageCell = new_row.insertCell(1);
@@ -87,40 +89,52 @@ delBtn.forEach((each) => {
         //이거 아이디로 로컬스트리지에있는거 삭제하기
         const delId = event.target.parentNode.parentNode.id;
         storedCartList = storedCartList.filter((each) => each !== delId );
-        console.log(storedCartList);
         localStorage.setItem( ITEMS_KEY, JSON.stringify(storedCartList));
-        //그리고 리랜딩해야함
         window.location.reload();
     })
 })
 
 //to buy button
-const toBuyBtn = document.querySelector( "#toBuyBtn" );
+const toBuyBtn = document.querySelector( ".toBuyBtn" );
 toBuyBtn.addEventListener( "click", () => { 
-    const modal = document.getElementsByClassName( "cartListModal");
-    modal[0].style.visibility = "visible";
-})
 
-//modal 구현
-const modal = document.getElementById("cartItems");
-let totalPrice = 0;
+    //구매창 modal 구현
+    const modal = document.getElementsByClassName("cartItems");
+    let totalPrice = 0;
+    checkedList.forEach((each) => {
+        totalPrice += each.price;
 
-cartList.forEach((each) => {
-    totalPrice += each.price;
+        const itemSpan = document.createElement( "span" );
+        const itemImg = document.createElement( "img" );
+        const itemTitle = document.createElement( "p" );
+        const itemPrice = document.createElement( "p" );
+        itemSpan.setAttribute( "class", "itemSpan" );
 
-    const itemSpan = document.createElement( "span" );
-    const itemImg = document.createElement( "img" );
-    const itemTitle = document.createElement( "p" );
-    const itemPrice = document.createElement( "p" );
-    itemSpan.setAttribute( "class", "itemSpan" );
+        itemImg.src = `${each.src}`;
+        itemImg.className = "tobuyImg";
+        itemTitle.innerHTML = `${each.title}`;
 
-    itemImg.src = `${each.src}`;
-    itemImg.className = "tobuyImg";
-    itemTitle.innerHTML = `${each.title}`;
+        //price , 조정
+        let finPrice = '';
+        const strPrice = each.price.toString();
+        [...Array(strPrice.length).keys()].forEach((index) => {
+            const oppIndex = strPrice.length - index - 1;
+            //자리수 3개일때마다 , 넣기 but 인덱스로 자리 번호 확인! 주의
+            if( index % 3 === 0 && index !== 0 ){
+                finPrice = strPrice[oppIndex] + ',' + finPrice;
+            }else{
+                finPrice = strPrice[oppIndex] + finPrice;
+            }
+        })
+        itemPrice.innerHTML = `${finPrice}원`;
 
-    //price , 조정
+        itemSpan.append(itemImg, itemTitle, itemPrice);
+        modal[0].appendChild(itemSpan);
+    })
+
+    //전체 가격 - price , 조정
     let finPrice = '';
-    const strPrice = each.price.toString();
+    const strPrice = totalPrice.toString();
     [...Array(strPrice.length).keys()].forEach((index) => {
         const oppIndex = strPrice.length - index - 1;
         //자리수 3개일때마다 , 넣기 but 인덱스로 자리 번호 확인! 주의
@@ -130,36 +144,74 @@ cartList.forEach((each) => {
             finPrice = strPrice[oppIndex] + finPrice;
         }
     })
-    itemPrice.innerHTML = `${finPrice}원`;
 
-    itemSpan.append(itemImg, itemTitle, itemTitle, itemPrice);
-    modal.appendChild(itemSpan);
+    const priceArea = document.getElementsByClassName( "price" );
+    priceArea[0].innerHTML = `총 가격: ${finPrice}원`;
+
+    //모달창 보이게 하기!
+    const cartListModal = document.getElementsByClassName( "cartListModal");
+    cartListModal[0].style.visibility = "visible";
 })
 
-//price , 조정
-let finPrice = '';
-const strPrice = totalPrice.toString();
-[...Array(strPrice.length).keys()].forEach((index) => {
-    const oppIndex = strPrice.length - index - 1;
-    //자리수 3개일때마다 , 넣기 but 인덱스로 자리 번호 확인! 주의
-    if( index % 3 === 0 && index !== 0 ){
-        finPrice = strPrice[oppIndex] + ',' + finPrice;
+/////////////////////체크박스///////////////////
+//check box
+const itemCheckboxes = document.querySelectorAll( ".itemCheckbox" );
+
+itemCheckboxes.forEach(( eachCheck ) => { 
+    eachCheck.addEventListener( "click", (event) => {
+        const checkBox = event.target;
+        const checkTitle = checkBox.parentNode.parentNode.id;
+
+        if(checkBox.checked){
+            shopList.forEach((each) => {
+                if( each.title === checkTitle ){
+                    checkedList.push(each);
+                }
+            })
+        }else{  //체크 취소한거라면
+            //체크드리스트 배열에서 팝
+            checkedList 
+                = checkedList.filter((each) => each.title !== checkTitle);
+        }
+    } ) 
+})
+
+const titleCheckbox = document.getElementsByClassName( "listCheckbox" );
+titleCheckbox[0].addEventListener( "click", (event) => {
+    if( event.target.checked ){
+        //모든 체크박스한테 체크하기
+        itemCheckboxes.forEach((each) => {
+            each.checked = true;
+            checkedList = cartList;
+        });
     }else{
-        finPrice = strPrice[oppIndex] + finPrice;
+        itemCheckboxes.forEach((each) => {
+            each.checked = false;
+            checkedList = [];
+        });
     }
+
+
 })
 
-const priceArea = document.getElementById( "price" );
-priceArea.innerHTML = `총 가격: ${finPrice}원`;
-
-//구매하기 버튼 눌렀을때
-const buyBtn = document.querySelector( "#buyBtn" );
+//////////////////////최종 구매하기 버튼 눌렀을때//////////////////////
+const buyBtn = document.querySelector( ".buyBtn" );
 buyBtn.addEventListener( "click", () => {
-    //배열이름있느거 삭제
 
 
-    //일단 모두 삭제
-    localStorage.removeItem(ITEMS_KEY);
+    //checkedList에 있는거 타이틀 비교해서삭제하기
+    storedCartList = storedCartList.filter(( each ) => {
+        let checkedFlag = true;
+        checkedList.forEach(( checkItem ) => {
+            if( each === checkItem.title ){
+                //each(= Item ) must be deleted!!!
+                checkedFlag = false; 
+            }
+        })
+        return checkedFlag;
+    })
+    localStorage.setItem( ITEMS_KEY, JSON.stringify(storedCartList) );
+    //localStorage.removeItem(ITEMS_KEY);
     const modal = document.getElementsByClassName( "cartListModal");
     modal[0].style.visibility = "hidden";
     
@@ -168,9 +220,19 @@ buyBtn.addEventListener( "click", () => {
     
 })
 
+//구매 모달창 닫기 버튼
 const quitBtn = document.querySelector( ".material-symbols-outlined" );
 quitBtn.addEventListener( "click", () => {
     const modal = document.getElementsByClassName( "cartListModal");
     modal[0].style.visibility = "hidden";
+
+    //이미 있던 사진들삭제!!!
+    const itemSection = document.getElementsByClassName( "cartItems" );
+    while(itemSection[0].firstChild){
+        itemSection[0].removeChild(itemSection[0].firstChild)
+    }
 })
+
+
+
 

@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cart.css"/>
+    <!--구글 전체-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <!--Google Icons menu bar-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!--Google Icons - modal x표 설정-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!--Google Font - 한글 글꼴 설정-->
@@ -16,18 +21,18 @@
     <header class="big_title">
         <a href="index.html" alt="home" class="titles">♡</a>
         <h1 class="titles">보운이의 장바구니</h1>
-        <div id="modalOpen">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <aside id="modalOpen">
+            <span class="material-icons menubar">
+                density_medium
+            </span>
+        </aside>
     </header>
     <main>
         <section>
-                <table id="table">
+                <table class="table">
                     <tr>
                         <th scope="col" class="tableList">
-                            <input type="checkbox"/></th>
+                            <input type="checkbox" class="listCheckbox"/></th>
                         <th scope="col" colspan="2" class="tableList">상품정보</th>
                         <th scope="col" class="tableList">상품 금액</th>
                         <th scope="col" class="tableList">카테고리</th>
@@ -36,8 +41,8 @@
                     
                 </table>
                 <div class="btnClass">
-                    <button id="toBuyBtn">구매하기</button>
-                    <a href="index.html" alt="home" id="toHomeBtn">홈으로</a>
+                    <button class="toBuyBtn">구매하기</button>
+                    <a href="index.html" alt="home" class="toHomeBtn">홈으로</a>
                 </div>
         </section>
         <section>
@@ -45,9 +50,9 @@
                 <span class="material-symbols-outlined">
                     close
                     </span>
-                <div id="cartItems"></div>
-                <p id="price"></p>
-                <button id="buyBtn">구매하기</button>
+                <div class="cartItems"></div>
+                <p class="price"></p>
+                <button class="buyBtn">구매하기</button>
             </div>
         </section>
 
