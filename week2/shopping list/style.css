@@ -5,6 +5,9 @@
     font-style: normal;
     line-height: 1px;
 }
+body{
+    overflow-x: hidden;
+}
 
 /*modal*/
 .modal {
@@ -18,7 +21,11 @@
     background-color: darkgreen;
     z-index: 20;
     visibility: hidden;
+    transform: translateX(100%);
+    transition: transform 1s ease;
 }
+/*모달창 스르륵 전체 바디에서 overflow하면 hidden으로 해서 가림*/
+
 /*구글 심볼로 하면 크기조절안된다.. 아이콘으로하자!*/
 .material-symbols-outlined {
     color:white;

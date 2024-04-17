@@ -23,16 +23,18 @@ let modalAni = [
 ]
 
 modalOpenBtn[0].addEventListener( "click", 
-    () => { modal[0].style.visibility = "visible";
-    //메뉴바눌렀을때 조금씩 나오게.. 애니메이션없나ㅠ
-    modal[0].animate( modalAni);
-    console.log(modal[0])
+    () => { 
+        modal[0].style.right = '0';
+        modal[0].style.visibility = "visible";
+        modal[0].style.transform = "translateX(0)";
  }
 );
 
 const closeArrow = document.getElementsByClassName( "material-symbols-outlined" );
 closeArrow[0].addEventListener( "click", 
-    () => { modal[0].style.visibility = "hidden" } 
+    () => { 
+    modal[0].style.transform = "translateX(100%)";
+ } 
 );
 
 //배너 이미지 채우기
