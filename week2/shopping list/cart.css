@@ -1,0 +1,171 @@
+/*모두 적용- 전체*/
+.gaegu-regular {
+    white-space: nowrap;
+    font-family: "Gaegu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*제목*/
+.big_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 5rem;
+    background-color: lightgreen;
+    z-index: 10;
+}
+.titles {
+    display: inline-block;
+    padding-left: 1rem;
+    color: darkgreen;
+    font-size: 3rem;
+    text-decoration-line: none;
+}
+.menubar{
+    color:darkgreen;
+    font-size: 100px;
+    /*흠....구글 meterial 아이콘인데.. 왜 사이즈 조정이 안될까 ㅠ*/
+    cursor: pointer;
+    /*오잉 커서 포인터는 또 왜안돼...??*/
+}
+
+/*Table*/
+.table{
+    position: relative;
+    top: 10rem;
+    left: 15%;
+    display: flex;
+    width: 70%;
+    max-height: 30rem;
+    overflow-y: auto;
+    background-color: rgb(131, 131, 131);
+}
+tr{
+    height: 3rem;
+
+}   
+.tableList{
+    width: 15rem;
+    background-color: lightgreen;
+}
+.tableList:nth-child(2){
+    width: 30rem;
+}
+th,td { 
+    width: 15rem;
+    color: darkgreen;
+    background-color: white;
+    font-size: x-large;
+    text-align: center;
+}
+.cartImg {
+    width: 5rem;
+}
+.deleteBtn {
+    width: 50%;
+    margin-left: 15%;
+    /*이게 폰트때문인지 넓이를 정해주면 가운데 정렬을 안해버림..ㅠ
+    수동으로 만들어줌...*/
+    height: 1rem;
+    border-radius:1rem;
+    background-color: rgb(179, 233, 179);
+    cursor: pointer;
+}
+
+
+/*button*/
+.btnClass{
+    position: relative;
+    top: 15rem;
+    display: flex;
+    justify-content: center;
+    gap:1rem;
+}
+
+.toBuyBtn{
+    color: blueviolet;
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+    background-color: yellow;
+    font-family: "Gaegu", sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    cursor: pointer;
+}
+
+.toHomeBtn{
+    display: flex;
+    align-self: center;
+    padding: 5px;
+    color: darkgreen;
+    border: 1px solid darkgreen;
+    border-radius: 10px;
+    background-color: white;
+    text-decoration-line: none;
+}
+
+/*modal*/
+.material-symbols-outlined {
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.cartListModal{
+    visibility: hidden;
+    background-color: rgb(212, 255, 212);
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    padding: 1rem;
+    width: 30rem;
+    height: 40rem;
+    border-radius: 30px;
+    
+}
+.cartItems{
+    position: absolute;
+    top: 4rem;
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 30rem;
+    height: 70%;
+    overflow-y: auto;
+}
+.itemSpan{
+    display: flex;
+    flex-direction: column;
+    max-width: 5rem;
+    text-wrap: wrap;
+}
+.itemSpan>p{
+    margin: 0;
+    padding: 0;
+}
+.tobuyImg{
+    width: 5rem;
+}
+.price{
+    position: absolute;
+    bottom: 4rem;
+    font-size: large;
+}
+
+.buyBtn{
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    width: 100px;
+    margin-left: -50px;
+    /*버튼 가운데로 직접정렬.. flex로 하기엔 다른요소들이 넘 제각각이라..*/
+}
