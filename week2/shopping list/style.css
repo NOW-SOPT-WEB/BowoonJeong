@@ -36,7 +36,7 @@ body{
   'GRAD' 0,
   'opsz' 20
 }
-/* id >>> tag >>> class????오잉 아닌가 */
+/* id >>> tag >>> class ?? */
 .modalList, .modalList:not(:hover) {
     margin-bottom: 3rem;
     font-size: 2rem;
