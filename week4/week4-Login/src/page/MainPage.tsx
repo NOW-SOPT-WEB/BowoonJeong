@@ -1,6 +1,6 @@
 import {Link, useParams} from 'react-router-dom';
-import img1 from '../assets/img1.png';
-import {Header, IMG, MoveButton, Section} from '../style/styleComponents';
+import {Header, MoveButton, Section} from '../style/styleComponents';
+import ReactPlayer from 'react-player';
 
 function MainPage() {
     const {memberId} = useParams<string>();
@@ -10,7 +10,7 @@ function MainPage() {
         <div>
             <Header>보운이의 로그인</Header>
             <Section>
-                <IMG src={img1} alt="image" />
+                <ReactPlayer url={'/videos/고양이.mp4'} playing={true} loop={true} muted={true} />
                 <div>
                     {memberId ? (
                         <Link to={`/mypage/${memberId}`}>

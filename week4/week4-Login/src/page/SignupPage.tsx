@@ -10,7 +10,13 @@ export default function SignupPage() {
     const idRef = useRef<HTMLInputElement>(null);
     const pwRef = useRef<HTMLInputElement>(null);
     const nicknameRef = useRef<HTMLInputElement>(null);
+    //const [phone, setPhone] = useState();
     const phoneRef = useRef<HTMLInputElement>(null);
+
+    /*useEffect(() => {
+        //하이픈 추가
+        setPhone({});
+    }, [phoneRef.current?.value]);*/
 
     function checkEachInput(props: React.RefObject<HTMLInputElement>) {
         if (!props.current?.value) {
