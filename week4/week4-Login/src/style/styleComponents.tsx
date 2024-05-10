@@ -28,7 +28,7 @@ export const MoveButton = styled.button`
     all: unset;
     padding: 0.8rem;
     margin-right: 1rem;
-    font-size: 2rem;
+    font-size: 1rem;
     color: white;
     font-weight: 600;
     background-color: darkgreen;
@@ -45,7 +45,7 @@ export const Area = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 
     padding: 1rem;
     width: 50%;
@@ -59,6 +59,7 @@ export const InputContaier = styled.div`
     justify-content: space-between;
     gap: 1rem;
     width: 70%;
+    height: 3rem;
 `;
 export const InputSort = styled.p`
     width: 15%;
@@ -77,6 +78,9 @@ export const Input = styled.input`
     border: 1px solid gray;
 `;
 export const HelpP = styled.p`
+    position: relative;
+    top: -0.5rem;
+    left: 1rem;
     font-size: 0.6rem;
     color: blue;
 `;

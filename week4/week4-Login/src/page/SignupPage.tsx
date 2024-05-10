@@ -1,10 +1,9 @@
 import {Area, HelpP, IMG, Input, InputContaier, InputSort, MoveButton, Title} from '../style/styleComponents';
 import signUpImg from '../assets/img3.jpg';
-import {Route, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import {BASE_URL} from '../assets/base-url';
 import {useRef} from 'react';
-import LoginPage from './LoginPage';
 
 export default function SignupPage() {
     const navi = useNavigate();
@@ -37,9 +36,9 @@ export default function SignupPage() {
                         phone: phoneRef.current?.value,
                     })
                     .then((res) => {
-                        alert(res.data);
+                        alert(res.data.message);
                         //to login page
-                        <Route path="/login" element={<LoginPage />} />;
+                        navi('/login');
                     })
                     .catch((error) => alert(error.response.data.message));
             } catch {
