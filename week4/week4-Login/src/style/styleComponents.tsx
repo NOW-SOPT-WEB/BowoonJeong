@@ -53,7 +53,7 @@ export const Area = styled.div`
     border-radius: 3rem;
     background-color: white;
 `;
-export const Title = styled.h1``;
+
 export const InputContaier = styled.div`
     display: flex;
     justify-content: space-between;
@@ -83,4 +83,20 @@ export const HelpP = styled.p`
     left: 1rem;
     font-size: 0.6rem;
     color: blue;
+`;
+export const OneLine = styled.div`
+    display: flex;
+    width: 70%;
+`;
+export const Info = styled.p`
+    font-weight: 600;
+    width: 20rem;
+`;
+export const PwEditBtn = styled.p`
+    cursor: pointer;
+    color: darkgreen;
+    font-weight: 700;
+`;
+export const ShowORNot = styled.div`
+    visibility: 'hidden';
 `;

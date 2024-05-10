@@ -1,4 +1,4 @@
-import {Area, HelpP, IMG, Input, InputContaier, InputSort, MoveButton, Title} from '../style/styleComponents';
+import {Area, HelpP, IMG, Input, InputContaier, InputSort, MoveButton} from '../style/styleComponents';
 import loginImg from '../assets/img2.jpg';
 import {Link, useNavigate} from 'react-router-dom';
 import {useState} from 'react';
@@ -39,7 +39,7 @@ export default function LoginPage() {
 
     return (
         <Area>
-            <Title>Login</Title>
+            <h1>Login</h1>
             <IMG src={loginImg} alt="loginImg" />
             <InputContaier>
                 <InputSort>ID</InputSort>

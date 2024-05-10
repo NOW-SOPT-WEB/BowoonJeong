@@ -1,4 +1,4 @@
-import {Area, HelpP, IMG, Input, InputContaier, InputSort, MoveButton, Title} from '../style/styleComponents';
+import {Area, HelpP, IMG, Input, InputContaier, InputSort, MoveButton} from '../style/styleComponents';
 import signUpImg from '../assets/img3.jpg';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
@@ -53,7 +53,7 @@ export default function SignupPage() {
     return (
         <div>
             <Area>
-                <Title>Sign Up</Title>
+                <h1>Sign Up</h1>
                 <IMG src={signUpImg} alt="signUpImg" />
 
                 <InputContaier>

@@ -13,7 +13,7 @@ function MainPage() {
                 <IMG src={img1} alt="image" />
                 <div>
                     {memberId ? (
-                        <Link to={'/mypage'}>
+                        <Link to={`/mypage/${memberId}`}>
                             <MoveButton>내 정보</MoveButton>
                         </Link>
                     ) : (
